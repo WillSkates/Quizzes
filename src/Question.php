@@ -9,16 +9,16 @@
  */
 namespace Quizzes;
 
-class Quiz
+class Question
 {
-
+	
 	use ThingTrait;
 
 	/**
-	 * A list of questions in this quiz.
-	 * @var \Quizzes\QuestionList
+	 * A list of answers to this question.
+	 * @var \Quizzes\AnswerList
 	 */
-	protected $questions;
+	protected $answers;
 
 	public function __construct($name, $description, $alias)
 	{
@@ -28,25 +28,25 @@ class Quiz
 	}
 
     /**
-     * Gets the list of questions in this quiz.
+     * Gets the list of answers to this question.
      *
-     * @return \Quizzes\QuestionList
+     * @return \Quizzes\AnswerList
      */
-    public function getQuestions()
+    public function getAnswers()
     {
-        return $this->questions;
+        return $this->answers;
     }
 
     /**
-     * Sets the list of questions in this quiz.
+     * Sets the list of answers to this question.
      *
-     * @param \Quizzes\QuestionList $questions the questions
+     * @param \Quizzes\AnswerList $answers the answers
      *
      * @return self
      */
-    protected function setQuestions(\Quizzes\QuestionList $questions)
+    protected function setAnswers(\Quizzes\AnswerList $answers)
     {
-        $this->questions = $questions;
+        $this->answers = $answers;
 
         return $this;
     }
