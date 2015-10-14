@@ -20,5 +20,4 @@ class Question extends BaseQuestion
 	{
 		$this->answers = new ArrayCollection();
 	}
-
 }

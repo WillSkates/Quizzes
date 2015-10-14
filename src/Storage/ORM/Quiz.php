@@ -19,5 +19,4 @@ class Quiz extends BaseQuiz
 	{
 		$this->questions = new ArrayCollection();
 	}
-
 }

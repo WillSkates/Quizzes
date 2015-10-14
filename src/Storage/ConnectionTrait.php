@@ -12,6 +12,9 @@ namespace Quizzes\Storage;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
+use Quizzes\Quiz as BaseQuiz;
+use Quizzes\Storage\ORM\Quiz;
+
 trait ConnectionTrait
 {
 
@@ -48,5 +51,39 @@ trait ConnectionTrait
 
         return $this;
 
+    }
+    
+    public function findAllQuizzes()
+    {
+
+        $res = [];
+
+        foreach($this->entityManager->findAll('Quizzes\Storage\ORM\Quiz') as $entity) {
+
+            $quiz = new BaseQuiz(
+                $entity->getName(),
+                $entity->getDescription(),
+                $entity->getAlias()
+            );
+
+            $quiz->setUuid($entity->getUuid());
+            $quiz->setUrl($entity->getUrl());
+
+            $res[] = $quiz;
+        }
+
+        return $res;
+
+    }
+
+    public function saveQuiz(BaseQuiz $quiz)
+    {
+        $entity = new Quiz();
+        $entity->setName($quiz->getName());
+        $entity->setDescription($quiz->getDescription());
+        $entity->setAlias($quiz->getAlias());
+        $entity->setUuid($quiz->getUuid());
+        $entity->setUrl($quiz->getUrl());
+        $this->entityManager->persist($entity);
     }
 }

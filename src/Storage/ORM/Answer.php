@@ -18,5 +18,4 @@ class Answer extends BaseAnswer
 	{
 
 	}
-
 }
