@@ -15,8 +15,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 class Quiz extends BaseQuiz
 {
 
-	public function __construct()
-	{
-		$this->questions = new ArrayCollection();
-	}
+    public function __construct()
+    {
+        $this->questions = new ArrayCollection();
+    }
 }

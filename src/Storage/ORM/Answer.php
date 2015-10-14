@@ -14,8 +14,8 @@ use Quizzes\Answer as BaseAnswer;
 class Answer extends BaseAnswer
 {
 
-	public function __construct()
-	{
+    public function __construct()
+    {
 
-	}
+    }
 }

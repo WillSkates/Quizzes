@@ -58,8 +58,7 @@ trait ConnectionTrait
 
         $res = [];
 
-        foreach($this->entityManager->findAll('Quizzes\Storage\ORM\Quiz') as $entity) {
-
+        foreach ($this->entityManager->findAll('Quizzes\Storage\ORM\Quiz') as $entity) {
             $quiz = new BaseQuiz(
                 $entity->getName(),
                 $entity->getDescription(),

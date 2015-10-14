@@ -12,12 +12,11 @@ namespace Quizzes\Storage\ORM;
 use Quizzes\Question as BaseQuestion;
 use Doctrine\Common\Collections\ArrayCollection;
 
-
 class Question extends BaseQuestion
 {
 
-	public function __construct()
-	{
-		$this->answers = new ArrayCollection();
-	}
+    public function __construct()
+    {
+        $this->answers = new ArrayCollection();
+    }
 }
