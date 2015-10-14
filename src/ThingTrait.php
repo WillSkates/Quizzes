@@ -16,7 +16,7 @@ namespace Quizzes;
  * Choices and descriptions taken from http://schema.org/Thing.
  * @see http://schema.org/Thing Choices and descriptions
  */
-trait Thing
+trait ThingTrait
 {
 
 	/**
