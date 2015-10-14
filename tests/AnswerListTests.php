@@ -64,5 +64,4 @@ class AnswerListTests extends PHPUnit_Framework_TestCase
         $answerList = new AnswerList();
         $answerList->push("This shouldn't work.");
     }
-
 }

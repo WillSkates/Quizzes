@@ -39,5 +39,4 @@ class QuestionList extends SplObjectStorage
     {
         parent::detach($question);
     }
-
 }

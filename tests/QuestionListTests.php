@@ -64,5 +64,4 @@ class QuestionListTests extends PHPUnit_Framework_TestCase
         $questionList = new QuestionList();
         $questionList->push("This shouldn't work.");
     }
-
 }

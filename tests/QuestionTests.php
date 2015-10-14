@@ -29,5 +29,4 @@ class QuestionTests extends PHPUnit_Framework_TestCase
         $this->assertEquals($description, $question->getDescription());
         $this->assertEquals($alias, $question->getAlias());
     }
-
 }

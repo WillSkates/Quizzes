@@ -20,5 +20,4 @@ class Answer
         $this->setDescription($description);
         $this->setAlias($alias);
     }
-
 }

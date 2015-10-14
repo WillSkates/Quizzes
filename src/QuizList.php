@@ -41,5 +41,4 @@ class QuizList extends SplObjectStorage
     {
         parent::detach($quiz);
     }
-
 }
