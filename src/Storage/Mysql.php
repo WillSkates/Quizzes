@@ -36,5 +36,4 @@ class Mysql
         $entityManager = EntityManager::create($dbParams, $config);
 
     }
-
 }
