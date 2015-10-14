@@ -11,6 +11,7 @@ namespace Quizzes\Storage;
 
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\Tools\SchemaTool;
 
 use Quizzes\Quiz as BaseQuiz;
 use Quizzes\Storage\ORM\Quiz;
@@ -51,6 +52,18 @@ trait ConnectionTrait
 
         return $this;
 
+    }
+
+    public function provideSchemaSql()
+    {
+        $tool = new SchemaTool($this->entityManager);
+        $classes = array(
+            $em->getClassMetadata('Quizzes\Storage\ORM\Quiz'),
+            $em->getClassMetadata('Quizzes\Storage\ORM\Question'),
+            $em->getClassMetadata('Quizzes\Storage\ORM\Answer')
+        );
+        $schema = $tool->createSchemaSql($classes);
+        return $schema;
     }
     
     public function findAllQuizzes()
