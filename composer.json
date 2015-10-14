@@ -27,7 +27,7 @@
 	"autoload": {
         "psr-4": { 
         	"Quizzes\\": "src/",
-        	"Quizzes\\Tests": "tests/"
+        	"Quizzes\\Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev"
