@@ -54,6 +54,7 @@ trait ConnectionTrait
 
     }
 
+    public function provideCreateSchemaSql()
     {
         $tool = new SchemaTool($this->entityManager);
         $classes = array(
