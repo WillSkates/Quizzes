@@ -17,6 +17,12 @@ class Quiz
 
     use ThingTrait;
 
+    /**
+     * A list of questions in this quiz.
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    protected $questions;
+
     public function __construct()
     {
         $this->questions = new ArrayCollection();

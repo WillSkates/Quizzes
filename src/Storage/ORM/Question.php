@@ -23,6 +23,12 @@ class Question
      */
     protected $quiz;
 
+    /**
+     * A list of answers to this question.
+     * @var \Doctrine\Common\Collections\ArrayCollection
+     */
+    protected $answers;
+
     public function __construct()
     {
         $this->answers = new ArrayCollection();
