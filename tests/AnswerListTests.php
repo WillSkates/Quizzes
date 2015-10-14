@@ -38,7 +38,7 @@ class AnswerListTests extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException TypeError
 	 */
 	public function testWontStoreNormalObject()
 	{
@@ -47,7 +47,7 @@ class AnswerListTests extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException TypeError
 	 */
 	public function testWontStoreInteger()
 	{
@@ -56,7 +56,7 @@ class AnswerListTests extends PHPUnit_Framework_TestCase
 	}
 
 	/**
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException TypeError
 	 */
 	public function testWontStoreBoolean()
 	{
@@ -65,7 +65,7 @@ class AnswerListTests extends PHPUnit_Framework_TestCase
 	}
 	
 	/**
-	 * @expectedException PHPUnit_Framework_Error
+	 * @expectedException TypeError
 	 */
 	public function testWontStoreString()
 	{
