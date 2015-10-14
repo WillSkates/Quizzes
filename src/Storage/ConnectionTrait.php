@@ -54,7 +54,6 @@ trait ConnectionTrait
 
     }
 
-    public function provideCreateSchemaSql()
     {
         $tool = new SchemaTool($this->entityManager);
         $classes = array(
@@ -71,7 +70,9 @@ trait ConnectionTrait
 
         $res = [];
 
-        foreach ($this->entityManager->getRepository('Quizzes\Storage\ORM\Quiz')->findAll() as $entity) {
+        $list = $this->entityManager->getRepository('Quizzes\Storage\ORM\Quiz')->findAll();
+
+        foreach ($list as $entity) {
             $quiz = new BaseQuiz(
                 $entity->getName(),
                 $entity->getDescription(),
@@ -97,5 +98,6 @@ trait ConnectionTrait
         $entity->setUuid($quiz->getUuid());
         $entity->setUrl($quiz->getUrl());
         $this->entityManager->persist($entity);
+        $this->entityManager->flush();
     }
 }
