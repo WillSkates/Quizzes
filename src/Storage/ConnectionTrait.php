@@ -33,7 +33,7 @@ trait ConnectionTrait
     {
 
         $paths = [
-            __DIR__ . '/ORM/entities.xml'
+            __DIR__ . '/ORM/Config'
         ];
 
         $dbParams = array(
