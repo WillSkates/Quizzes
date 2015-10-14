@@ -1,0 +1,31 @@
+{
+	"name": "willskates/quizzes",
+	"type": "library",
+    "description": "A PHP library that implements functionality that's necessary to create multiple choice quizzes.",
+    "keywords": ["php", "quizzes"],
+    "license": "MIT",
+    "version": "1.0.0",
+	"homepage": "http://github.com/WillSkates/Quizzes",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "William Skates",
+			"email": "will@thisbe.ws",
+			"homepage": "http://www.thisbe.ws",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "support@thisbe.ws"
+	},
+	"require": {
+		"php": ">=5.5"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "3.7.*"
+	},
+	"autoload": {
+        "psr-4": { "Quizzes": "" }
+    },
+    "minimum-stability": "dev"
+}
