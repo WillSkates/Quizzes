@@ -62,7 +62,7 @@ trait ConnectionTrait
             $this->entityManager->getClassMetadata('Quizzes\Storage\ORM\Question'),
             $this->entityManager->getClassMetadata('Quizzes\Storage\ORM\Answer')
         );
-        $schema = $tool->createSchemaSql($classes);
+        $schema = $tool->getSchemaSql($classes);
         return $schema;
     }
     
