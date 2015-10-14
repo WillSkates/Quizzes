@@ -12,7 +12,7 @@ namespace Quizzes\Storage;
 use Doctrine\ORM\Tools\Setup;
 use Doctrine\ORM\EntityManager;
 
-class ConnectionTrait
+trait ConnectionTrait
 {
 
     protected $entityManager;
@@ -20,10 +20,10 @@ class ConnectionTrait
     /**
      * Establish a connection to the database using the following:
      * @param  string $driver   The database driver name e.g.pdo_mysql
-     * @param  string $host     
+     * @param  string $host
      * @param  string $username
-     * @param  string $password 
-     * @param  string $dbname   
+     * @param  string $password
+     * @param  string $dbname
      * @return self
      */
     public function establishConnection($driver, $host, $username, $password, $dbname)
