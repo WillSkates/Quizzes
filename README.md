@@ -12,7 +12,7 @@ A PHP library that implements functionality that's necessary to create multiple 
 The license for this software is located in the project root in the file named LICENSE
 
 ## Requirements
-- PHP 5.6 or newer
+- PHP 5.5 or newer
 
 ## Installing
 
