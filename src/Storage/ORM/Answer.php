@@ -14,8 +14,38 @@ use Quizzes\Answer as BaseAnswer;
 class Answer extends BaseAnswer
 {
 
+    /**
+     * The question that this answer belongs to.
+     * @var \Quizzes\Storage\ORM\Question
+     */
+    protected $question;
+
     public function __construct()
     {
 
+    }
+
+    /**
+     * Gets the question that this answer belongs to.
+     *
+     * @return \Quizzes\Storage\ORM\Question
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * Sets the question that this answer belongs to.
+     *
+     * @param \Quizzes\Storage\ORM\Question $question the question
+     *
+     * @return self
+     */
+    public function setQuestion(\Quizzes\Storage\ORM\Question $question)
+    {
+        $this->question = $question;
+
+        return $this;
     }
 }
