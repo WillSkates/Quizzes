@@ -58,9 +58,6 @@ class AnswerListTests extends PHPUnit_Framework_TestCase
 		$answerList->push(true);
 	}
 	
-	/**
-	 * @expectedException TypeError
-	 */
 	public function testWontStoreString()
 	{
 		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
