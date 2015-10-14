@@ -2,10 +2,10 @@
 
 A PHP library that implements functionality that's necessary to create multiple choice quizzes.
 
-## Build Status
+## Code Status
 
 [![Build Status](https://secure.travis-ci.org/WillSkates/Quizzes.png?branch=master)](http://travis-ci.org/WillSkates/Quizzes)
-
+[![Coverage Status](https://coveralls.io/repos/WillSkates/Quizzes/badge.svg?branch=master&service=github)](https://coveralls.io/github/WillSkates/Quizzes?branch=master)
 
 ## License
 
