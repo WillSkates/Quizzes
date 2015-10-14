@@ -22,16 +22,6 @@ Here is an example composer.json file:
 	}
 ```
 
-If you don't/can't use composer you can require the autoload.map.php file in the project root.
-
-```PHP
-	
-	<?php
-		require '/path/to/the/folder/for/quizzes/autoload.map.php';
-	?>
-
-```
-
 ## Usage
 
 TBD
