@@ -13,7 +13,8 @@ $conn = new PDO(
 
 $conn->exec('CREATE DATABASE quizzes_tests;');
 
-$conn = new PDO(
+
+$cconn = new PDO(
 	'mysql:host=localhost;dbname=quizzes_tests',
 	'travis',
 	'',
@@ -32,5 +33,5 @@ $mysql = new Quizzes\Storage\Mysql(
 $sql = $mysql->provideCreateSchemaSql();
 
 foreach ($sql as $query) {
-	$conn->exec($query);
+	$cconn->exec($query);
 }
