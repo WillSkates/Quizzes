@@ -58,9 +58,9 @@ trait ConnectionTrait
     {
         $tool = new SchemaTool($this->entityManager);
         $classes = array(
-            $em->getClassMetadata('Quizzes\Storage\ORM\Quiz'),
-            $em->getClassMetadata('Quizzes\Storage\ORM\Question'),
-            $em->getClassMetadata('Quizzes\Storage\ORM\Answer')
+            $this->entityManager->getClassMetadata('Quizzes\Storage\ORM\Quiz'),
+            $this->entityManager->getClassMetadata('Quizzes\Storage\ORM\Question'),
+            $this->entityManager->getClassMetadata('Quizzes\Storage\ORM\Answer')
         );
         $schema = $tool->createSchemaSql($classes);
         return $schema;
