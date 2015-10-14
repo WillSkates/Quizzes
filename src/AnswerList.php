@@ -14,7 +14,7 @@ use SplObjectStorage;
 class AnswerList extends SplObjectStorage
 {
 	
-	public function attach(Answer $answer)
+	public function attach(Answer $answer, $data = NULL)
     {
         parent::attach($answer);
     }
