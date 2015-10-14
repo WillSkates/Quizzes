@@ -3,8 +3,6 @@ language: php
 before_script:
     - composer self-update
     - composer install --prefer-source
-    - pear config-set auto_discover 1
-    - pear install PHP_CodeSniffer
 
 script:
     - phpunit
