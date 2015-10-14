@@ -54,7 +54,7 @@ trait ConnectionTrait
 
     }
 
-    public function provideSchemaSql()
+    public function provideCreateSchemaSql()
     {
         $tool = new SchemaTool($this->entityManager);
         $classes = array(
@@ -62,7 +62,7 @@ trait ConnectionTrait
             $this->entityManager->getClassMetadata('Quizzes\Storage\ORM\Question'),
             $this->entityManager->getClassMetadata('Quizzes\Storage\ORM\Answer')
         );
-        $schema = $tool->getSchemaSql($classes);
+        $schema = $tool->getCreateSchemaSql($classes);
         return $schema;
     }
     

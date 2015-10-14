@@ -29,7 +29,7 @@ $mysql = new Quizzes\Storage\Mysql(
 	'quizzes_tests'
 );
 
-$sql = $mysql->provideSchemaSql();
+$sql = $mysql->provideCreateSchemaSql();
 
 foreach ($sql as $query) {
 	$conn->exec($query);
