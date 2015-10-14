@@ -20,10 +20,10 @@ class MySQLTests extends PHPUnit_Framework_TestCase
     public function testCanCreateAndConnect()
     {
         $mysql = new Mysql(
-            getenv('db_host'),
-            getenv('db_username'),
-            getenv('db_password'),
-            getenv('db_name')
+            $_ENV['db_host'],
+            $_ENV['db_username'],
+            $_ENV['db_password'],
+            $_ENV['db_name']
         );
     }
 
@@ -31,10 +31,10 @@ class MySQLTests extends PHPUnit_Framework_TestCase
     {
 
         $mysql = new Mysql(
-            getenv('db_host'),
-            getenv('db_username'),
-            getenv('db_password'),
-            getenv('db_name')
+            $_ENV['db_host'],
+            $_ENV['db_username'],
+            $_ENV['db_password'],
+            $_ENV['db_name']
         );
 
         $this->assertCount(0, $mysql->findAllQuizzes());
