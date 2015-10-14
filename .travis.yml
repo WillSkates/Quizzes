@@ -1,6 +1,21 @@
 language: php
 
-before_script: composer install --dev --prefer-source
+before_script:
+    - composer self-update
+    - composer install --prefer-source
+
+script:
+    - ./vendor/bin/phpcs src --standard=PSR1
+    - ./vendor/bin/phpcs src --standard=PSR2
+    - ./vendor/bin/phpcs tests --standard=PSR1
+    - ./vendor/bin/phpcs tests --standard=PSR2
+    - phpunit
+
+after_script:
+  - php vendor/bin/coveralls -v
+
+env:
+  - DB=mysql
 
 php:
   - 5.5

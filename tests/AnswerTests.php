@@ -9,11 +9,11 @@
  */
 namespace Quizzes\Tests;
 
-use Quizzes\Quiz;
+use Quizzes\Answer;
 
 use PHPUnit_Framework_TestCase;
 
-class QuizTests extends PHPUnit_Framework_TestCase
+class AnswerTests extends PHPUnit_Framework_TestCase
 {
 
     public function testCanStoreInformation()
@@ -23,10 +23,10 @@ class QuizTests extends PHPUnit_Framework_TestCase
         $description = 'a description';
         $alias = 'an-alias';
         
-        $quiz = new Quiz($name, $description, $alias);
+        $answer = new Answer($name, $description, $alias);
 
-        $this->assertEquals($name, $quiz->getName());
-        $this->assertEquals($description, $quiz->getDescription());
-        $this->assertEquals($alias, $quiz->getAlias());
+        $this->assertEquals($name, $answer->getName());
+        $this->assertEquals($description, $answer->getDescription());
+        $this->assertEquals($alias, $answer->getAlias());
     }
 }

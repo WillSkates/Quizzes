@@ -1,18 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         bootstrap="vendor/autoload.php"
+<phpunit bootstrap="tests.bootstrap.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="true"
-         stopOnError="true"
-         stopOnIncomplete="true"
-         stopOnSkipped="true"
+         stopOnFailure="false"
+         stopOnError="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
          syntaxCheck="true"
+         backupGlobals="false"
 >
+    <php>
+        <env name="db_type" value="pdo_mysql"/>
+        <env name="db_host" value="localhost" />
+        <env name="db_username" value="travis" />
+        <env name="db_password" value="" />
+        <env name="db_name" value="quizzes_tests" />
+        <env name="db_port" value="3306"/>
+    </php>
+    <filter>
+    <blacklist>
+        <directory>project</directory>
+        <directory>tests</directory>
+    </blacklist>
+    <whitelist>
+        <directory>src</directory>
+    </whitelist>
+  </filter>
+    <log type="coverage-clover" target="coverage.xml"/>
     <testsuites>
         <testsuite name="tests">
             <directory suffix=".php">./tests</directory>
