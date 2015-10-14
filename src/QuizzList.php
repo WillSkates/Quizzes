@@ -20,7 +20,14 @@ class QuizList extends SplObjectStorage
 	public function attach($obj, $inf = null)
 	{
 		throw new BadMethodCallException(
-			"The ::attach method from SplObjectStorage cannot be used to store Answers."
+			"The ::attach method from SplObjectStorage cannot be used to store Quizzes."
+		);
+	}
+
+	public function detach($obj)
+	{
+		throw new BadMethodCallException(
+			"The ::detach method from SplObjectStorage cannot be used to store Quizzes."
 		);
 	}
 
@@ -30,7 +37,7 @@ class QuizList extends SplObjectStorage
         parent::attach($quiz);
     }
 
-    public function detach(Quiz $quiz)
+    public function remove(Quiz $quiz)
     {
         parent::detach($quiz);
     }

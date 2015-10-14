@@ -23,12 +23,19 @@ class AnswerList extends SplObjectStorage
 		);
 	}
 
+	public function detach($obj)
+	{
+		throw new BadMethodCallException(
+			"The ::detach method from SplObjectStorage cannot be used to store Answers."
+		);
+	}
+
 	public function push(Answer $answer)
     {
         parent::attach($answer);
     }
 
-    public function detach(Answer $answer)
+    public function remove(Answer $answer)
     {
         parent::detach($answer);
     }

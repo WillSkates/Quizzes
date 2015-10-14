@@ -22,13 +22,20 @@ class QuestionList extends SplObjectStorage
 			"The ::attach method from SplObjectStorage cannot be used to store Questions."
 		);
 	}
+
+	public function detach($obj)
+	{
+		throw new BadMethodCallException(
+			"The ::detach method from SplObjectStorage cannot be used to store Questions."
+		);
+	}
 	
 	public function push(Question $question)
     {
         parent::attach($question);
     }
 
-    public function detach(Question $question)
+    public function remove(Question $question)
     {
         parent::detach($question);
     }
