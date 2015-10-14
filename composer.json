@@ -25,6 +25,9 @@
 		"phpunit/phpunit": "5.0.0"
 	},
 	"autoload": {
+		"files": [
+			"phpunit.typeerror.shiv.php"
+		],
         "psr-4": { 
         	"Quizzes\\": "src/",
         	"Quizzes\\Tests\\": "tests/"

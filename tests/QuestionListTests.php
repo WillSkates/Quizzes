@@ -37,38 +37,30 @@ class QuestionListTests extends PHPUnit_Framework_TestCase
 
 	}
 
-	/**
-	 * @expectedException TypeError
-	 */
 	public function testWontStoreNormalObject()
 	{
+		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
 		$questionList = new QuestionList();
 		$questionList->push(new \stdClass);
 	}
 
-	/**
-	 * @expectedException TypeError
-	 */
 	public function testWontStoreInteger()
 	{
+		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
 		$questionList = new QuestionList();
 		$questionList->push(1);
 	}
 
-	/**
-	 * @expectedException TypeError
-	 */
 	public function testWontStoreBoolean()
 	{
+		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
 		$questionList = new QuestionList();
 		$questionList->push(true);
 	}
 	
-	/**
-	 * @expectedException TypeError
-	 */
 	public function testWontStoreString()
 	{
+		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
 		$questionList = new QuestionList();
 		$questionList->push("This shouldn't work.");
 	}

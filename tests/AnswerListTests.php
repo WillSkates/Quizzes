@@ -37,29 +37,23 @@ class AnswerListTests extends PHPUnit_Framework_TestCase
 
 	}
 
-	/**
-	 * @expectedException TypeError
-	 */
 	public function testWontStoreNormalObject()
 	{
+		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
 		$answerList = new AnswerList();
 		$answerList->push(new \stdClass);
 	}
 
-	/**
-	 * @expectedException TypeError
-	 */
 	public function testWontStoreInteger()
 	{
+		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
 		$answerList = new AnswerList();
 		$answerList->push(1);
 	}
 
-	/**
-	 * @expectedException TypeError
-	 */
 	public function testWontStoreBoolean()
 	{
+		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
 		$answerList = new AnswerList();
 		$answerList->push(true);
 	}
@@ -69,6 +63,7 @@ class AnswerListTests extends PHPUnit_Framework_TestCase
 	 */
 	public function testWontStoreString()
 	{
+		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
 		$answerList = new AnswerList();
 		$answerList->push("This shouldn't work.");
 	}
