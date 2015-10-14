@@ -22,7 +22,7 @@ $conn = new PDO(
 	]
 );
 
-$mysql = new Mysql(
+$mysql = new Quizzes\Storage\Mysql(
 	'localhost',
 	'travis',
 	'',
