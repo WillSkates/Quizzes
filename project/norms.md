@@ -1,5 +1,6 @@
 # Project Norms
-- Project maintainers and developers will communicate inside of the trello board for the project or the project's github page where appropriate.
+- Project maintainers and developers will communicate inside of the trello board for the project during a sprint unless seeking feedback.
+- Project maintainers and developers will communicate inside of the github project page when seeking feedback.
 - Users will report issues and feature requests through github.
 - Be respectful and listen.
 - Attack a given problem not any given person.
