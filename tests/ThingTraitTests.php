@@ -13,12 +13,16 @@ use Quizzes\ThingTrait;
 
 use PHPUnit_Framework_TestCase;
 
+use ReflectionObject;
+
 class ThingTraitTests extends PHPUnit_Framework_TestCase
 {
 
 	public function testCanCreate()
 	{
 		$thing = $this->getObjectForTrait('Quizzes\ThingTrait');
+
+		$ref = new ReflectionObject($thing);
 
 		$this->assertNull($thing->getName());
 		$this->assertNull($thing->getDescription());
@@ -28,9 +32,17 @@ class ThingTraitTests extends PHPUnit_Framework_TestCase
 		$description = 'a description';
 		$alias = 'an-alias';
 
-		$thing->setName($name);
-		$thing->setDescription($description);
-		$thing->setAlias($alias);
+		$setName = $ref->getMethod('setName');
+		$setDescription = $ref->getMethod('setDescription');
+		$setAlias = $ref->getMethod('setAlias');
+
+		$setName->setAccessible(true);
+		$setDescription->setAccessible(true);
+		$setAlias->setAccessible(true);
+
+		$setName->invoke($thing, $name);
+		$setDescription->invoke($thing, $description);
+		$setAlias->invoke($thing, $alias);
 
 		$this->assertEquals($name, $thing->getName());
 		$this->assertEquals($description, $thing->getDescription());
@@ -40,9 +52,9 @@ class ThingTraitTests extends PHPUnit_Framework_TestCase
 		$description = 'another description';
 		$alias = 'another-alias';
 
-		$thing->setName($name);
-		$thing->setDescription($description);
-		$thing->setAlias($alias);
+		$setName->invoke($thing, $name);
+		$setDescription->invoke($thing, $description);
+		$setAlias->invoke($thing, $alias);
 
 		$this->assertEquals($name, $thing->getName());
 		$this->assertEquals($description, $thing->getDescription());
