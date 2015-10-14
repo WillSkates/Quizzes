@@ -11,10 +11,19 @@ namespace Quizzes;
 
 use SplObjectStorage;
 
+use BadMethodCallException;
+
 class AnswerList extends SplObjectStorage
 {
 	
-	public function attach(Answer $answer, $data = NULL)
+	public function attach($obj, $inf = null)
+	{
+		throw new BadMethodCallException(
+			"The ::attach method from SplObjectStorage cannot be used to store Answers."
+		);
+	}
+
+	public function push(Answer $answer)
     {
         parent::attach($answer);
     }

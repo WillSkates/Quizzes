@@ -27,7 +27,7 @@ class QuestionListTests extends PHPUnit_Framework_TestCase
 		$question = new Question($name, $description, $alias);
 
 		$questionList = new QuestionList();
-		$questionList->attach($question);
+		$questionList->push($question);
 
 	}
 
@@ -37,7 +37,7 @@ class QuestionListTests extends PHPUnit_Framework_TestCase
 	public function testWontStoreNormalObject()
 	{
 		$questionList = new QuestionList();
-		$questionList->attach(new \stdClass);
+		$questionList->push(new \stdClass);
 	}
 
 	/**
@@ -46,7 +46,7 @@ class QuestionListTests extends PHPUnit_Framework_TestCase
 	public function testWontStoreInteger()
 	{
 		$questionList = new QuestionList();
-		$questionList->attach(1);
+		$questionList->push(1);
 	}
 
 	/**
@@ -55,7 +55,7 @@ class QuestionListTests extends PHPUnit_Framework_TestCase
 	public function testWontStoreBoolean()
 	{
 		$questionList = new QuestionList();
-		$questionList->attach(true);
+		$questionList->push(true);
 	}
 	
 	/**
@@ -64,7 +64,7 @@ class QuestionListTests extends PHPUnit_Framework_TestCase
 	public function testWontStoreString()
 	{
 		$questionList = new QuestionList();
-		$questionList->attach("This shouldn't work.");
+		$questionList->push("This shouldn't work.");
 	}
 
 }

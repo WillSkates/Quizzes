@@ -27,7 +27,7 @@ class QuizListTests extends PHPUnit_Framework_TestCase
 		$quiz = new Quiz($name, $description, $alias);
 
 		$quizList = new QuizList();
-		$quizList->attach($quiz);
+		$quizList->push($quiz);
 
 	}
 
@@ -37,7 +37,7 @@ class QuizListTests extends PHPUnit_Framework_TestCase
 	public function testWontStoreNormalObject()
 	{
 		$quizList = new QuizList();
-		$quizList->attach(new \stdClass);
+		$quizList->push(new \stdClass);
 	}
 
 	/**
@@ -46,7 +46,7 @@ class QuizListTests extends PHPUnit_Framework_TestCase
 	public function testWontStoreInteger()
 	{
 		$quizList = new QuizList();
-		$quizList->attach(1);
+		$quizList->push(1);
 	}
 
 	/**
@@ -55,7 +55,7 @@ class QuizListTests extends PHPUnit_Framework_TestCase
 	public function testWontStoreBoolean()
 	{
 		$quizList = new QuizList();
-		$quizList->attach(true);
+		$quizList->push(true);
 	}
 	
 	/**
@@ -64,7 +64,7 @@ class QuizListTests extends PHPUnit_Framework_TestCase
 	public function testWontStoreString()
 	{
 		$quizList = new QuizList();
-		$quizList->attach("This shouldn't work.");
+		$quizList->push("This shouldn't work.");
 	}
 
 }
