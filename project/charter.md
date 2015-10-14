@@ -21,7 +21,7 @@
 
 ## Features
 
-**Note:** A full list of features is available on the projects [https://trello.com/b/LFAsX15y/quizzes-php-library.](Trello board). However here is a brief summary of the types of features used:
+**Note:** A full list of features is available on the projects [https://trello.com/b/LFAsX15y/quizzes-php-library](Trello board). However here is a brief summary of the types of features used:
 
 1. Value classes/objects that encompass information that is required.
 2. Mapping between data stores and the above objects.
