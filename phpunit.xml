@@ -21,15 +21,14 @@
         <env name="db_port" value="3306"/>
     </php>
     <filter>
-    <blacklist>
-        <directory>project</directory>
-        <directory>tests</directory>
-    </blacklist>
-    <whitelist>
-        <directory>src</directory>
-    </whitelist>
-  </filter>
-    <log type="coverage-clover" target="coverage.xml"/>
+        <blacklist>
+            <directory>project</directory>
+            <directory>tests</directory>
+        </blacklist>
+        <whitelist>
+            <directory>src</directory>
+        </whitelist>
+    </filter>
     <testsuites>
         <testsuite name="tests">
             <directory suffix=".php">./tests</directory>
