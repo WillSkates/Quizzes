@@ -29,6 +29,12 @@ class QuizListTests extends PHPUnit_Framework_TestCase
 		$quizList = new QuizList();
 		$quizList->push($quiz);
 
+		$this->assertCount(1, $quizList);
+
+		$quizList->remove($quiz);
+
+		$this->assertCount(0, $quizList);
+
 	}
 
 	/**
@@ -57,7 +63,7 @@ class QuizListTests extends PHPUnit_Framework_TestCase
 		$quizList = new QuizList();
 		$quizList->push(true);
 	}
-	
+
 	/**
 	 * @expectedException PHPUnit_Framework_Error
 	 */

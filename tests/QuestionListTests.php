@@ -29,6 +29,12 @@ class QuestionListTests extends PHPUnit_Framework_TestCase
 		$questionList = new QuestionList();
 		$questionList->push($question);
 
+		$this->assertCount(1, $questionList);
+
+		$questionList->remove($question);
+
+		$this->assertCount(0, $questionList);
+
 	}
 
 	/**

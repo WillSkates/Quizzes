@@ -29,6 +29,12 @@ class AnswerListTests extends PHPUnit_Framework_TestCase
 		$answerList = new AnswerList();
 		$answerList->push($answer);
 
+		$this->assertCount(1, $answerList);
+
+		$answerList->remove($answer);
+
+		$this->assertCount(0, $answerList);
+
 	}
 
 	/**
