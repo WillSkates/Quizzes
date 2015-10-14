@@ -10,7 +10,7 @@
 
 - Limit the amount of software development required to produce Quizzes in web sites and/or applications on the server.
 - Reduce the amount of data modeling that needs to be done in order to CRUD data that is related to Quizzes.
-- Provide a solution that works with all modern PHP versions (5.5, 5.6, 7 and HHVM).
+- Provide a solution that works with all modern PHP versions (5.6, 7 and HHVM).
 - Take advantage of widely used PHP tools and conventions to assure compatibility and re usability in conjunction with pre-existing PHP software.
 
 ## Prioritization
