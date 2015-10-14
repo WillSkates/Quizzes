@@ -10,7 +10,7 @@
 namespace Quizzes\Tests;
 
 use Quizzes\Storage\Mysql;
-use Quizzes\Storage\Quiz;
+use Quizzes\Storage\ORM\Quiz;
 
 use PHPUnit_Framework_TestCase;
 
