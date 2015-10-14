@@ -66,7 +66,7 @@ trait ThingTrait
      *
      * @return self
      */
-    protected function setName($name)
+    public function setName($name)
     {
         $this->name = $name;
 
@@ -90,7 +90,7 @@ trait ThingTrait
      *
      * @return self
      */
-    protected function setDescription($description)
+    public function setDescription($description)
     {
         $this->description = $description;
 
@@ -114,7 +114,7 @@ trait ThingTrait
      *
      * @return self
      */
-    protected function setAlias($alias)
+    public function setAlias($alias)
     {
         $this->alias = $alias;
 
@@ -138,7 +138,7 @@ trait ThingTrait
      *
      * @return self
      */
-    protected function setUrl($url)
+    public function setUrl($url)
     {
         $this->url = $url;
 
@@ -162,7 +162,7 @@ trait ThingTrait
      *
      * @return self
      */
-    protected function setUuid($uuid)
+    public function setUuid($uuid)
     {
         $this->uuid = $uuid;
 
