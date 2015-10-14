@@ -7,18 +7,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Quizzes\Tests;
+namespace Quizzes;
 
-use Quizzes\Quiz;
-
-use PHPUnit_Framework_TestCase;
-
-class QuizTests extends PHPUnit_Framework_TestCase
+class Quiz
 {
 
-	public function testCanCreate()
+	public function __construct()
 	{
-		$quiz = new Quiz();
+
 	}
 
 }
