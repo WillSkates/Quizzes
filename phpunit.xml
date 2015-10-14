@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<phpunit backupGlobals="false"
-         backupStaticAttributes="false"
-         bootstrap="vendor/autoload.php"
+<phpunit bootstrap="vendor/autoload.php"
          colors="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
          processIsolation="false"
-         stopOnFailure="true"
-         stopOnError="true"
-         stopOnIncomplete="true"
-         stopOnSkipped="true"
+         stopOnFailure="false"
+         stopOnError="false"
+         stopOnIncomplete="false"
+         stopOnSkipped="false"
          syntaxCheck="true"
 >
+    <php>
+        <var name="db_type" value="pdo_mysql"/>
+        <var name="db_host" value="localhost" />
+        <var name="db_username" value="travis" />
+        <var name="db_password" value="" />
+        <var name="db_name" value="doctrine_tests" />
+        <var name="db_port" value="3306"/>
+    </php>
     <testsuites>
         <testsuite name="tests">
             <directory suffix=".php">./tests</directory>
