@@ -16,13 +16,13 @@ use PHPUnit_Framework_TestCase;
 class MySQLTests extends PHPUnit_Framework_TestCase
 {
 
-	public function testCanCreateAndConnect()
-	{
-		$mysql = new Mysql(
-			$_ENV['db_host'],
-			$_ENV['db_username'],
-			$_ENV['db_password'],
-			$_ENV['db_name']
-		);
-	}
+    public function testCanCreateAndConnect()
+    {
+        $mysql = new Mysql(
+            $_ENV['db_host'],
+            $_ENV['db_username'],
+            $_ENV['db_password'],
+            $_ENV['db_name']
+        );
+    }
 }
