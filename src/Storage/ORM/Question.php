@@ -9,11 +9,13 @@
  */
 namespace Quizzes\Storage\ORM;
 
-use Quizzes\Question as BaseQuestion;
 use Doctrine\Common\Collections\ArrayCollection;
+use Quizzes\ThingTrait;
 
-class Question extends BaseQuestion
+class Question
 {
+
+    use ThingTrait;
 
     /**
      * The reference to the quiz that this question is on.

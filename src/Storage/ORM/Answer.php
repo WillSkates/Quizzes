@@ -9,10 +9,12 @@
  */
 namespace Quizzes\Storage\ORM;
 
-use Quizzes\Answer as BaseAnswer;
+use Quizzes\ThingTrait;
 
-class Answer extends BaseAnswer
+class Answer
 {
+
+    use ThingTrait;
 
     /**
      * The question that this answer belongs to.

@@ -9,11 +9,13 @@
  */
 namespace Quizzes\Storage\ORM;
 
-use Quizzes\Quiz as BaseQuiz;
 use Doctrine\Common\Collections\ArrayCollection;
+use Quizzes\ThingTrait;
 
-class Quiz extends BaseQuiz
+class Quiz
 {
+
+    use ThingTrait;
 
     public function __construct()
     {
