@@ -10,6 +10,7 @@
          stopOnIncomplete="false"
          stopOnSkipped="false"
          syntaxCheck="true"
+         backupGlobals="false"
 >
     <php>
         <env name="db_type" value="pdo_mysql"/>
