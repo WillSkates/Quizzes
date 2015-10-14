@@ -17,52 +17,52 @@ use PHPUnit_Framework_TestCase;
 class AnswerListTests extends PHPUnit_Framework_TestCase
 {
 
-	public function testWillStoreAnswer()
-	{
+    public function testWillStoreAnswer()
+    {
 
-		$name = 'a name';
-		$description = 'a description';
-		$alias = 'an-alias';
-		
-		$answer = new Answer($name, $description, $alias);
+        $name = 'a name';
+        $description = 'a description';
+        $alias = 'an-alias';
+        
+        $answer = new Answer($name, $description, $alias);
 
-		$answerList = new AnswerList();
-		$answerList->push($answer);
+        $answerList = new AnswerList();
+        $answerList->push($answer);
 
-		$this->assertCount(1, $answerList);
+        $this->assertCount(1, $answerList);
 
-		$answerList->remove($answer);
+        $answerList->remove($answer);
 
-		$this->assertCount(0, $answerList);
+        $this->assertCount(0, $answerList);
 
-	}
+    }
 
-	public function testWontStoreNormalObject()
-	{
-		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
-		$answerList = new AnswerList();
-		$answerList->push(new \stdClass);
-	}
+    public function testWontStoreNormalObject()
+    {
+        $this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
+        $answerList = new AnswerList();
+        $answerList->push(new \stdClass);
+    }
 
-	public function testWontStoreInteger()
-	{
-		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
-		$answerList = new AnswerList();
-		$answerList->push(1);
-	}
+    public function testWontStoreInteger()
+    {
+        $this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
+        $answerList = new AnswerList();
+        $answerList->push(1);
+    }
 
-	public function testWontStoreBoolean()
-	{
-		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
-		$answerList = new AnswerList();
-		$answerList->push(true);
-	}
-	
-	public function testWontStoreString()
-	{
-		$this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
-		$answerList = new AnswerList();
-		$answerList->push("This shouldn't work.");
-	}
+    public function testWontStoreBoolean()
+    {
+        $this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
+        $answerList = new AnswerList();
+        $answerList->push(true);
+    }
+    
+    public function testWontStoreString()
+    {
+        $this->setExpectedException(TYPE_ERROR_EXCEPTION_NAME);
+        $answerList = new AnswerList();
+        $answerList->push("This shouldn't work.");
+    }
 
 }

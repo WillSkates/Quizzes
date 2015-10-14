@@ -16,21 +16,21 @@ use BadMethodCallException;
 class QuestionList extends SplObjectStorage
 {
 
-	public function attach($obj, $inf = null)
-	{
-		throw new BadMethodCallException(
-			"The ::attach method from SplObjectStorage cannot be used to store Questions."
-		);
-	}
+    public function attach($obj, $inf = null)
+    {
+        throw new BadMethodCallException(
+            "The ::attach method from SplObjectStorage cannot be used to store Questions."
+        );
+    }
 
-	public function detach($obj)
-	{
-		throw new BadMethodCallException(
-			"The ::detach method from SplObjectStorage cannot be used to store Questions."
-		);
-	}
-	
-	public function push(Question $question)
+    public function detach($obj)
+    {
+        throw new BadMethodCallException(
+            "The ::detach method from SplObjectStorage cannot be used to store Questions."
+        );
+    }
+    
+    public function push(Question $question)
     {
         parent::attach($question);
     }

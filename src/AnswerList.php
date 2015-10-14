@@ -15,22 +15,22 @@ use BadMethodCallException;
 
 class AnswerList extends SplObjectStorage
 {
-	
-	public function attach($obj, $inf = null)
-	{
-		throw new BadMethodCallException(
-			"The ::attach method from SplObjectStorage cannot be used to store Answers."
-		);
-	}
+    
+    public function attach($obj, $inf = null)
+    {
+        throw new BadMethodCallException(
+            "The ::attach method from SplObjectStorage cannot be used to store Answers."
+        );
+    }
 
-	public function detach($obj)
-	{
-		throw new BadMethodCallException(
-			"The ::detach method from SplObjectStorage cannot be used to store Answers."
-		);
-	}
+    public function detach($obj)
+    {
+        throw new BadMethodCallException(
+            "The ::detach method from SplObjectStorage cannot be used to store Answers."
+        );
+    }
 
-	public function push(Answer $answer)
+    public function push(Answer $answer)
     {
         parent::attach($answer);
     }

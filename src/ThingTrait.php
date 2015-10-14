@@ -19,35 +19,35 @@ namespace Quizzes;
 trait ThingTrait
 {
 
-	/**
-	 * The name of the item.
-	 * @var string
-	 */
-	protected $name;
+    /**
+     * The name of the item.
+     * @var string
+     */
+    protected $name;
 
-	/**
-	 * A short description of the item.
-	 * @var string
-	 */
-	protected $description;
+    /**
+     * A short description of the item.
+     * @var string
+     */
+    protected $description;
 
-	/**
-	 * An alias for the item.
-	 * @var string
-	 */
-	protected $alias;
+    /**
+     * An alias for the item.
+     * @var string
+     */
+    protected $alias;
 
-	/**
-	 * URL of the item.
-	 * @var string
-	 */
-	protected $url;
+    /**
+     * URL of the item.
+     * @var string
+     */
+    protected $url;
 
-	/**
-	 * The unique identifier for this item.
-	 * @var string
-	 */
-	protected $uuid;
+    /**
+     * The unique identifier for this item.
+     * @var string
+     */
+    protected $uuid;
 
     /**
      * Gets the name of the item.

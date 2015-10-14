@@ -16,18 +16,18 @@ use PHPUnit_Framework_TestCase;
 class AnswerTests extends PHPUnit_Framework_TestCase
 {
 
-	public function testCanStoreInformation()
-	{
+    public function testCanStoreInformation()
+    {
 
-		$name = 'a name';
-		$description = 'a description';
-		$alias = 'an-alias';
-		
-		$answer = new Answer($name, $description, $alias);
+        $name = 'a name';
+        $description = 'a description';
+        $alias = 'an-alias';
+        
+        $answer = new Answer($name, $description, $alias);
 
-		$this->assertEquals($name, $answer->getName());
-		$this->assertEquals($description, $answer->getDescription());
-		$this->assertEquals($alias, $answer->getAlias());
-	}
+        $this->assertEquals($name, $answer->getName());
+        $this->assertEquals($description, $answer->getDescription());
+        $this->assertEquals($alias, $answer->getAlias());
+    }
 
 }

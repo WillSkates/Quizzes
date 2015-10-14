@@ -11,14 +11,14 @@ namespace Quizzes;
 
 class Answer
 {
-	
-	use ThingTrait;
+    
+    use ThingTrait;
 
-	public function __construct($name, $description, $alias)
-	{
-		$this->setName($name);
-		$this->setDescription($description);
-		$this->setAlias($alias);
-	}
+    public function __construct($name, $description, $alias)
+    {
+        $this->setName($name);
+        $this->setDescription($description);
+        $this->setAlias($alias);
+    }
 
 }

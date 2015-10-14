@@ -18,48 +18,48 @@ use ReflectionObject;
 class ThingTraitTests extends PHPUnit_Framework_TestCase
 {
 
-	public function testCanCreate()
-	{
-		$thing = $this->getObjectForTrait('Quizzes\ThingTrait');
+    public function testCanCreate()
+    {
+        $thing = $this->getObjectForTrait('Quizzes\ThingTrait');
 
-		$ref = new ReflectionObject($thing);
+        $ref = new ReflectionObject($thing);
 
-		$this->assertNull($thing->getName());
-		$this->assertNull($thing->getDescription());
-		$this->assertNull($thing->getAlias());
+        $this->assertNull($thing->getName());
+        $this->assertNull($thing->getDescription());
+        $this->assertNull($thing->getAlias());
 
-		$name = 'a name';
-		$description = 'a description';
-		$alias = 'an-alias';
+        $name = 'a name';
+        $description = 'a description';
+        $alias = 'an-alias';
 
-		$setName = $ref->getMethod('setName');
-		$setDescription = $ref->getMethod('setDescription');
-		$setAlias = $ref->getMethod('setAlias');
+        $setName = $ref->getMethod('setName');
+        $setDescription = $ref->getMethod('setDescription');
+        $setAlias = $ref->getMethod('setAlias');
 
-		$setName->setAccessible(true);
-		$setDescription->setAccessible(true);
-		$setAlias->setAccessible(true);
+        $setName->setAccessible(true);
+        $setDescription->setAccessible(true);
+        $setAlias->setAccessible(true);
 
-		$setName->invoke($thing, $name);
-		$setDescription->invoke($thing, $description);
-		$setAlias->invoke($thing, $alias);
+        $setName->invoke($thing, $name);
+        $setDescription->invoke($thing, $description);
+        $setAlias->invoke($thing, $alias);
 
-		$this->assertEquals($name, $thing->getName());
-		$this->assertEquals($description, $thing->getDescription());
-		$this->assertEquals($alias, $thing->getAlias());
+        $this->assertEquals($name, $thing->getName());
+        $this->assertEquals($description, $thing->getDescription());
+        $this->assertEquals($alias, $thing->getAlias());
 
-		$name = 'another name';
-		$description = 'another description';
-		$alias = 'another-alias';
+        $name = 'another name';
+        $description = 'another description';
+        $alias = 'another-alias';
 
-		$setName->invoke($thing, $name);
-		$setDescription->invoke($thing, $description);
-		$setAlias->invoke($thing, $alias);
+        $setName->invoke($thing, $name);
+        $setDescription->invoke($thing, $description);
+        $setAlias->invoke($thing, $alias);
 
-		$this->assertEquals($name, $thing->getName());
-		$this->assertEquals($description, $thing->getDescription());
-		$this->assertEquals($alias, $thing->getAlias());
+        $this->assertEquals($name, $thing->getName());
+        $this->assertEquals($description, $thing->getDescription());
+        $this->assertEquals($alias, $thing->getAlias());
 
-	}
+    }
 
 }

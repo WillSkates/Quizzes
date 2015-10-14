@@ -12,20 +12,20 @@ namespace Quizzes;
 class Quiz
 {
 
-	use ThingTrait;
+    use ThingTrait;
 
-	/**
-	 * A list of questions in this quiz.
-	 * @var \Quizzes\QuestionList
-	 */
-	protected $questions;
+    /**
+     * A list of questions in this quiz.
+     * @var \Quizzes\QuestionList
+     */
+    protected $questions;
 
-	public function __construct($name, $description, $alias)
-	{
-		$this->setName($name);
-		$this->setDescription($description);
-		$this->setAlias($alias);
-	}
+    public function __construct($name, $description, $alias)
+    {
+        $this->setName($name);
+        $this->setDescription($description);
+        $this->setAlias($alias);
+    }
 
     /**
      * Gets the list of questions in this quiz.

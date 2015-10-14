@@ -11,21 +11,21 @@ namespace Quizzes;
 
 class Question
 {
-	
-	use ThingTrait;
+    
+    use ThingTrait;
 
-	/**
-	 * A list of answers to this question.
-	 * @var \Quizzes\AnswerList
-	 */
-	protected $answers;
+    /**
+     * A list of answers to this question.
+     * @var \Quizzes\AnswerList
+     */
+    protected $answers;
 
-	public function __construct($name, $description, $alias)
-	{
-		$this->setName($name);
-		$this->setDescription($description);
-		$this->setAlias($alias);
-	}
+    public function __construct($name, $description, $alias)
+    {
+        $this->setName($name);
+        $this->setDescription($description);
+        $this->setAlias($alias);
+    }
 
     /**
      * Gets the list of answers to this question.
