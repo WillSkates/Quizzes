@@ -122,10 +122,10 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 			foreach ($quiz->getQuestions() as $question) {
 
 				if(
-					$v['name'] == $question->getName(),
-					$v['description'] == $question->getDescription(),
-					$v['alias'] == $question->getAlias(),
-					$v['url'] == $question->getUrl()
+					$v['name'] == $question->getName()
+					&& $v['description'] == $question->getDescription()
+					&& $v['alias'] == $question->getAlias()
+					&& $v['url'] == $question->getUrl()
 				) {
 					$found++;
 					$foundAnswers = 0;
@@ -135,10 +135,10 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 						foreach($question->getAnswers() as $answer) {
 
 							if(
-								$value['name'] == $answer->getName(),
-								$value['description'] == $answer->getDescription(),
-								$value['alias'] == $answer->getAlias(),
-								$value['url'] == $answer->getUrl()
+								$value['name'] == $answer->getName()
+								&& $value['description'] == $answer->getDescription()
+								&& $value['alias'] == $answer->getAlias()
+								&& $value['url'] == $answer->getUrl()
 							) {
 								$foundAnswers++;
 							}
