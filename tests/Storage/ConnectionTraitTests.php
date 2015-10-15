@@ -101,7 +101,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 
         $uuid = $result->getUuid();
 
-        $this->assertTrue($this->doesInfoMatchQuiz($info, $result));
+        $this->assertTrue($this->doesInfoMatchQuiz($quiz, $result));
 
     }
 
@@ -119,7 +119,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 
         foreach ($info['questions'] as $k => $v) {
             $foundAnswers = 0;
-            
+
             foreach ($quiz->getQuestions() as $question) {
                 if ($v['name'] == $question->getName()
                     && $v['description'] == $question->getDescription()
