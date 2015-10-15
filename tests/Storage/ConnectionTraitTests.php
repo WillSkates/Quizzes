@@ -56,7 +56,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
             }
         }
 
-        $this->assertCount(0, $class, print_r($names, true));
+        $this->assertCount(0, $classes, print_r($names, true));
 
     }
 
