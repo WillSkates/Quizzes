@@ -10,6 +10,8 @@
 namespace Quizzes\Tests;
 
 use Quizzes\Question;
+use Quizzes\Quiz;
+use Quizzes\Answer;
 
 use PHPUnit_Framework_TestCase;
 
@@ -35,5 +37,30 @@ class QuestionTests extends PHPUnit_Framework_TestCase
         $this->assertEquals($alias, $question->getAlias());
         $this->assertEquals($uuid, $question->getUuid());
         $this->assertEquals($url, $question->getUrl());
+
+        $quiz = new Quiz('a test quiz', '', '');
+        $this->assertNull($question->getQuiz());
+        $question->setQuiz($quiz);
+        $this->assertEquals($quiz->getName(), $question->getQuiz()->getName());
+
+        $this->assertCount(0, $question->getAnswers());
+
+        $answers = [
+            new Answer('test answer', '', ''),
+            new Answer('test answer 2', '', ''),
+            new Answer('test answer 3', '', '')
+        ];
+
+        foreach($answers as $key => $value) {
+            $answers[$key]->setQuestion($question);
+            $question->getAnswers()->add($value);
+        }
+
+        $this->assertCount(count($answers), $question->getAnswers());
+
+        foreach($question->getAnswers() as $key => $value) {
+            $this->assertEquals($answers[$key]->getName(), $value->getName());
+        }
+
     }
 }

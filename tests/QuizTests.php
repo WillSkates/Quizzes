@@ -35,5 +35,7 @@ class QuizTests extends PHPUnit_Framework_TestCase
         $this->assertEquals($alias, $quiz->getAlias());
         $this->assertEquals($uuid, $quiz->getUuid());
         $this->assertEquals($url, $quiz->getUrl());
+
+        $this->assertCount(0, $quiz->getQuestions());
     }
 }
