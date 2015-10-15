@@ -63,7 +63,7 @@ class Question
      *
      * @return self
      */
-    protected function setQuiz(\Quizzes\Quiz $quiz)
+    public function setQuiz(\Quizzes\Quiz $quiz)
     {
         $this->quiz = $quiz;
 

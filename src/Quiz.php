@@ -39,18 +39,4 @@ class Quiz
     {
         return $this->questions;
     }
-
-    /**
-     * Sets the list of questions in this quiz.
-     *
-     * @param \Doctrine\Common\Collections\ArrayCollection $questions the questions
-     *
-     * @return self
-     */
-    protected function setQuestions(ArrayCollection $questions)
-    {
-        $this->questions = $questions;
-
-        return $this;
-    }
 }
