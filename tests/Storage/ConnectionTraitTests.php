@@ -126,10 +126,10 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
                     "url" => $question->getUrl()
                 ];
 
-                $answers = $v['answers'];
-                unset($v['answers'], $v['uuid']);
+                $info = $v;
+                unset($info['answers'], $info['uuid']);
 
-                $diff = array_diff($v, $q);
+                $diff = array_diff($info, $q);
 
                 if(count($diff) == 0) {
                     $found++;
