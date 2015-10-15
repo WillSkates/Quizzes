@@ -162,7 +162,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
             print_r(
                 [
                     "info" => $info['questions'],
-                    "actual" => $question->getQuestions()
+                    "actual" => $quiz->getQuestions()
                 ]
             )
         );
