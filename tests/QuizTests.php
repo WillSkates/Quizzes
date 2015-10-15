@@ -10,6 +10,7 @@
 namespace Quizzes\Tests;
 
 use Quizzes\Quiz;
+use Quizzes\Question;
 
 use PHPUnit_Framework_TestCase;
 
