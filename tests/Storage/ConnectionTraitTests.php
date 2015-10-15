@@ -75,13 +75,13 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
         $obj = new Quiz($quiz['name'], $quiz['description'], $quiz['alias']);
         $obj->setUrl($quiz['url']);
 
-        foreach($quiz['questions'] as $question) {
+        foreach ($quiz['questions'] as $question) {
             $q = new Question($question['name'], $question['description'], $question['alias']);
             $q->setUrl($question['url']);
             $q->setQuiz($obj);
             $obj->getQuestions()->add($q);
 
-            foreach($question['answers'] as $answer) {
+            foreach ($question['answers'] as $answer) {
                 $a = new Answer($answer['name'], $answer['description'], $answer['alias']);
                 $a->setUrl($answer['url']);
                 $a->setQuestion($q);
@@ -106,21 +106,19 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
     protected function doesInfoMatchQuiz(array $info, Quiz $quiz)
     {
 
-        $this->assertEquals($info['name'],        $quiz->getName());
+        $this->assertEquals($info['name'], $quiz->getName());
         $this->assertEquals($info['description'], $quiz->getDescription());
-        $this->assertEquals($info['alias'],       $quiz->getAlias());
-        $this->assertEquals($info['url'],         $quiz->getUrl());
+        $this->assertEquals($info['alias'], $quiz->getAlias());
+        $this->assertEquals($info['url'], $quiz->getUrl());
 
         $this->assertEquals(count($info['questions']), count($quiz->getQuestions()));
 
         $found = 0;
 
         foreach ($info['questions'] as $k => $v) {
-
             $foundAnswers = 0;
 
             foreach ($quiz->getQuestions() as $question) {
-
                 if(
                     $v['name'] == $question->getName()
                     && $v['description'] == $question->getDescription()
@@ -134,8 +132,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 
                         foreach($question->getAnswers() as $answer) {
 
-                            if(
-                                $value['name'] == $answer->getName()
+                            if ($value['name'] == $answer->getName()
                                 && $value['description'] == $answer->getDescription()
                                 && $value['alias'] == $answer->getAlias()
                                 && $value['url'] == $answer->getUrl()
@@ -211,13 +208,13 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 
         $names = [];
 
-        foreach($metadata as $k => $v) {
+        foreach ($metadata as $k => $v) {
 
             $names[] = $v->getName();
 
-            foreach($classes as $key => $value) {
+            foreach ($classes as $key => $value) {
 
-                if($value == $v->getName()) {
+                if ($value == $v->getName()) {
                     unset($classes[$key]);
                 }
 
