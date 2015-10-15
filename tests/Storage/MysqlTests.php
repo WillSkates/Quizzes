@@ -37,7 +37,7 @@ class MySQLTests extends PHPUnit_Framework_TestCase
             $_ENV['db_name']
         );
 
-        $this->assertCount(0, $mysql->findAllQuizzes());
+        $this->assertCount(0, $mysql->getQuizzes()->findAll());
 
         $name = 'a name';
         $description = 'a description';
@@ -45,9 +45,9 @@ class MySQLTests extends PHPUnit_Framework_TestCase
         
         $quiz = new Quiz($name, $description, $alias);
 
-        $mysql->saveQuiz($quiz);
+        $mysql->persist($quiz);
 
-        $this->assertCount(1, $mysql->findAllQuizzes());
+        $this->assertCount(1, $mysql->getQuizzes()->findAll());
 
     }
 }
