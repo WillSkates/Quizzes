@@ -118,9 +118,8 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
         $found = 0;
 
         foreach ($info['questions'] as $k => $v) {
-            $foundAnswers = 0;
-
             foreach ($quiz->getQuestions() as $question) {
+
                 if ($v['name'] == $question->getName()
                     && $v['description'] == $question->getDescription()
                     && $v['alias'] == $question->getAlias()
@@ -146,8 +145,9 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
                         $foundAnswers,
                         print_r(
                             [
+                                "message" => "Couldn't find all of the answers for the question named {$v['name']}."
                                 "info" => $v['answers'],
-                                "actual" => $question->getAnswers()
+                                "actual" => $question->getAnswers()->toArray()
                             ],
                             true
                         )
@@ -161,8 +161,9 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
             $found,
             print_r(
                 [
+                    "message" => "Couldn't find all of the questions for the quiz named {$info['name']}."
                     "info" => $info['questions'],
-                    "actual" => $quiz->getQuestions()
+                    "actual" => $quiz->getQuestions()->toArray()
                 ]
             )
         );
