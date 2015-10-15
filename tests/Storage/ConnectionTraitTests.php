@@ -164,7 +164,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
                 "alias" => $question->getAlias(),
                 "url" => $question->getUrl(),
                 "uuid" => $question->getUuid()
-            ]
+            ];
         }
 
         $this->assertEquals(
