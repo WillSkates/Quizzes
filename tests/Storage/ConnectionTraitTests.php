@@ -19,168 +19,168 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 {
 
 
-	protected function useConnectionToTestCrud($connection)
-	{
+    protected function useConnectionToTestCrud($connection)
+    {
 
-		$quiz = [
-			'name' => 'The first Quiz',
-			'description' => 'A data sample to test crud operations.',
-			'alias' => 'the-first-quiz',
-			'uuid' => '',
-			'url' => '/quizzes/1',
-			'questions' => [
-				[
-					'name' => 'A sample question',
-					'description' => 'What is this?',
-					'alias' => 'a-sample-question',
-					'uuid' => '',
-					'url' => '/quizzes/1/questions/1',
-					'answers' => [
-						[
-							'name' => 'Something',
-							'description' => '',
-							'alias' => '',
-							'uuid' => '',
-							'url' => '/quizzes/1/questions/1/answers/1'
-						],
-						[
-							'name' => 'Nothing',
-							'description' => '',
-							'alias' => '',
-							'uuid' => '',
-							'url' => '/quizzes/1/questions/1/answers/2'
-						]
-					]
-				],
-				[
-					'name' => 'Another sample question',
-					'description' => 'How does this work?',
-					'alias' => 'how-does-this-work',
-					'uuid' => '',
-					'url' => '/quizzes/1/questions/2',
-					'answers' => [
-						[
-							'name' => 'I have no idea.',
-							'description' => '',
-							'alias' => '',
-							'uuid' => '',
-							'url' => '/quizzes/1/questions/2/answers/1'
-						]
-					]
-				]
-			]
-		];
+        $quiz = [
+            'name' => 'The first Quiz',
+            'description' => 'A data sample to test crud operations.',
+            'alias' => 'the-first-quiz',
+            'uuid' => '',
+            'url' => '/quizzes/1',
+            'questions' => [
+                [
+                    'name' => 'A sample question',
+                    'description' => 'What is this?',
+                    'alias' => 'a-sample-question',
+                    'uuid' => '',
+                    'url' => '/quizzes/1/questions/1',
+                    'answers' => [
+                        [
+                            'name' => 'Something',
+                            'description' => '',
+                            'alias' => '',
+                            'uuid' => '',
+                            'url' => '/quizzes/1/questions/1/answers/1'
+                        ],
+                        [
+                            'name' => 'Nothing',
+                            'description' => '',
+                            'alias' => '',
+                            'uuid' => '',
+                            'url' => '/quizzes/1/questions/1/answers/2'
+                        ]
+                    ]
+                ],
+                [
+                    'name' => 'Another sample question',
+                    'description' => 'How does this work?',
+                    'alias' => 'how-does-this-work',
+                    'uuid' => '',
+                    'url' => '/quizzes/1/questions/2',
+                    'answers' => [
+                        [
+                            'name' => 'I have no idea.',
+                            'description' => '',
+                            'alias' => '',
+                            'uuid' => '',
+                            'url' => '/quizzes/1/questions/2/answers/1'
+                        ]
+                    ]
+                ]
+            ]
+        ];
 
-		//build the quiz object from the data.
-		$obj = new Quiz($quiz['name'], $quiz['description'], $quiz['alias']);
-		$obj->setUrl($quiz['url']);
+        //build the quiz object from the data.
+        $obj = new Quiz($quiz['name'], $quiz['description'], $quiz['alias']);
+        $obj->setUrl($quiz['url']);
 
-		foreach($quiz['questions'] as $question) {
-			$q = new Question($question['name'], $question['description'], $question['alias']);
-			$q->setUrl($question['url']);
-			$q->setQuiz($obj);
-			$obj->getQuestions()->add($q);
+        foreach($quiz['questions'] as $question) {
+            $q = new Question($question['name'], $question['description'], $question['alias']);
+            $q->setUrl($question['url']);
+            $q->setQuiz($obj);
+            $obj->getQuestions()->add($q);
 
-			foreach($question['answers'] as $answer) {
-				$a = new Answer($answer['name'], $answer['description'], $answer['alias']);
-				$a->setUrl($answer['url']);
-				$a->setQuestion($q);
-				$q->getAnswers()->add($a);
-			}
-		}
+            foreach($question['answers'] as $answer) {
+                $a = new Answer($answer['name'], $answer['description'], $answer['alias']);
+                $a->setUrl($answer['url']);
+                $a->setQuestion($q);
+                $q->getAnswers()->add($a);
+            }
+        }
 
-		$this->assertCount(0, $connection->getQuizzes()->findAll());
+        $this->assertCount(0, $connection->getQuizzes()->findAll());
 
-		$connection->persist($obj);
+        $connection->persist($obj);
 
-		$this->assertCount(1, $connection->getQuizzes()->findAll());
+        $this->assertCount(1, $connection->getQuizzes()->findAll());
 
-		$quizzes = $connection->getQuizzes()->findAll();
+        $quizzes = $connection->getQuizzes()->findAll();
 
-		$result = $quizzes[0];
+        $result = $quizzes[0];
 
-		$uuid = $quizzes->getUuid();
+        $uuid = $quizzes->getUuid();
 
-	}
+    }
 
-	protected function doesInfoMatchQuiz(array $info, Quiz $quiz)
-	{
+    protected function doesInfoMatchQuiz(array $info, Quiz $quiz)
+    {
 
-		$this->assertEquals($info['name'],        $quiz->getName());
-		$this->assertEquals($info['description'], $quiz->getDescription());
-		$this->assertEquals($info['alias'],       $quiz->getAlias());
-		$this->assertEquals($info['url'],         $quiz->getUrl());
+        $this->assertEquals($info['name'],        $quiz->getName());
+        $this->assertEquals($info['description'], $quiz->getDescription());
+        $this->assertEquals($info['alias'],       $quiz->getAlias());
+        $this->assertEquals($info['url'],         $quiz->getUrl());
 
-		$this->assertEquals(count($info['questions']), count($quiz->getQuestions()));
+        $this->assertEquals(count($info['questions']), count($quiz->getQuestions()));
 
-		$found = 0;
+        $found = 0;
 
-		foreach ($info['questions'] as $k => $v) {
+        foreach ($info['questions'] as $k => $v) {
 
-			$foundAnswers = 0;
+            $foundAnswers = 0;
 
-			foreach ($quiz->getQuestions() as $question) {
+            foreach ($quiz->getQuestions() as $question) {
 
-				if(
-					$v['name'] == $question->getName()
-					&& $v['description'] == $question->getDescription()
-					&& $v['alias'] == $question->getAlias()
-					&& $v['url'] == $question->getUrl()
-				) {
-					$found++;
-					$foundAnswers = 0;
+                if(
+                    $v['name'] == $question->getName()
+                    && $v['description'] == $question->getDescription()
+                    && $v['alias'] == $question->getAlias()
+                    && $v['url'] == $question->getUrl()
+                ) {
+                    $found++;
+                    $foundAnswers = 0;
 
-					foreach ($v['answers'] as $value) {
+                    foreach ($v['answers'] as $value) {
 
-						foreach($question->getAnswers() as $answer) {
+                        foreach($question->getAnswers() as $answer) {
 
-							if(
-								$value['name'] == $answer->getName()
-								&& $value['description'] == $answer->getDescription()
-								&& $value['alias'] == $answer->getAlias()
-								&& $value['url'] == $answer->getUrl()
-							) {
-								$foundAnswers++;
-							}
+                            if(
+                                $value['name'] == $answer->getName()
+                                && $value['description'] == $answer->getDescription()
+                                && $value['alias'] == $answer->getAlias()
+                                && $value['url'] == $answer->getUrl()
+                            ) {
+                                $foundAnswers++;
+                            }
 
-						}
+                        }
 
-					}
+                    }
 
-					$this->assertEquals(
-						count($v['answers']),
-						$foundAnswers,
-						print_r(
-							[
-								"info" => $v['answers'],
-								"actual" => $question->getAnswers()
-							],
-							true
-						)
-					);
-				}
+                    $this->assertEquals(
+                        count($v['answers']),
+                        $foundAnswers,
+                        print_r(
+                            [
+                                "info" => $v['answers'],
+                                "actual" => $question->getAnswers()
+                            ],
+                            true
+                        )
+                    );
+                }
 
-			}
+            }
 
-		}
+        }
 
-		$this->assertEquals(
-			count($info['questions']),
-			$found,
-			print_r(
-				[
-					"info" => $info['questions'],
-					"actual" => $question->getQuestions()
-				]
-			)
-		);
+        $this->assertEquals(
+            count($info['questions']),
+            $found,
+            print_r(
+                [
+                    "info" => $info['questions'],
+                    "actual" => $question->getQuestions()
+                ]
+            )
+        );
 
-	}
+    }
 
-	public function testCrudUsingMysqlConnection()
-	{
-		$connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
-		$connection->establishConnection(
+    public function testCrudUsingMysqlConnection()
+    {
+        $connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
+        $connection->establishConnection(
             'pdo_mysql',
             $host,
             $username,
@@ -188,45 +188,45 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
             $dbname
         );
         $this->useConnectionToTestCrud($connection);
-	}
+    }
 
-	public function testGetMetadata()
-	{
+    public function testGetMetadata()
+    {
 
-		//Make sure that we have metadata for each class.
-		$connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
-		$metadata = $connection->getClassMetadata();
+        //Make sure that we have metadata for each class.
+        $connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
+        $metadata = $connection->getClassMetadata();
 
-		$classes = [
-			"\Quizzes\Quiz",
-			"\Quizzes\Question",
-			"\Quizzes\Answer"
-		];
+        $classes = [
+            "\Quizzes\Quiz",
+            "\Quizzes\Question",
+            "\Quizzes\Answer"
+        ];
 
-		$names = [];
+        $names = [];
 
-		foreach($metadata as $k => $v) {
+        foreach($metadata as $k => $v) {
 
-			$names[] = $v->getName();
+            $names[] = $v->getName();
 
-			foreach($classes as $key => $value) {
+            foreach($classes as $key => $value) {
 
-				if($value == $v->getName()) {
-					unset($classes[$key]);
-				}
+                if($value == $v->getName()) {
+                    unset($classes[$key]);
+                }
 
-			}
+            }
 
-		}
+        }
 
-		$this->assertCount(0, $class, print_r($names, true));
+        $this->assertCount(0, $class, print_r($names, true));
 
-	}
+    }
 
-	public function testGetSchemaTool()
-	{
-		$connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
-		$schema = $connection->getSchemaTool();
-		$this->assertInstanceOf('Doctrine\ORM\Tools\SchemaTool', $schema);
-	}
+    public function testGetSchemaTool()
+    {
+        $connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
+        $schema = $connection->getSchemaTool();
+        $this->assertInstanceOf('Doctrine\ORM\Tools\SchemaTool', $schema);
+    }
 }
