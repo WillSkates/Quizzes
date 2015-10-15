@@ -55,4 +55,18 @@ class Question
     {
         return $this->quiz;
     }
+
+    /**
+     * Sets the quiz that this question is a part of.
+     *
+     * @param \Quizzes\Quiz $quiz the quiz
+     *
+     * @return self
+     */
+    protected function setQuiz(\Quizzes\Quiz $quiz)
+    {
+        $this->quiz = $quiz;
+
+        return $this;
+    }
 }
