@@ -51,14 +51,14 @@ class QuestionTests extends PHPUnit_Framework_TestCase
             new Answer('test answer 3', '', '')
         ];
 
-        foreach($answers as $key => $value) {
+        foreach ($answers as $key => $value) {
             $answers[$key]->setQuestion($question);
             $question->getAnswers()->add($value);
         }
 
         $this->assertCount(count($answers), $question->getAnswers());
 
-        foreach($question->getAnswers() as $key => $value) {
+        foreach ($question->getAnswers() as $key => $value) {
             $this->assertEquals($answers[$key]->getName(), $value->getName());
         }
 
