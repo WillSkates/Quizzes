@@ -119,21 +119,6 @@ trait ConnectionTrait
     }
 
     /**
-     * Sets the object that assists us on performing operations
-     * on entities.
-     *
-     * @param \Doctrine\ORM\EntityManager $entityManager the entity manager
-     *
-     * @return self
-     */
-    protected function setEntityManager(\Doctrine\ORM\EntityManager $entityManager)
-    {
-        $this->entityManager = $entityManager;
-
-        return $this;
-    }
-
-    /**
      * Gets the object that assists us on performing operations
      * on Quiz entities specifically.
      *
@@ -195,5 +180,4 @@ trait ConnectionTrait
         }
         return $this->classMetadata;
     }
-
 }
