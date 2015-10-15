@@ -144,7 +144,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
                         $foundAnswers,
                         print_r(
                             [
-                                "message" => "Couldn't find all of the answers for the question named {$v['name']}."
+                                "message" => "Couldn't find all of the answers for the question named {$v['name']}.",
                                 "info" => $v['answers'],
                                 "actual" => $question->getAnswers()->toArray()
                             ],
@@ -160,7 +160,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
             $found,
             print_r(
                 [
-                    "message" => "Couldn't find all of the questions for the quiz named {$info['name']}."
+                    "message" => "Couldn't find all of the questions for the quiz named {$info['name']}.",
                     "info" => $info['questions'],
                     "actual" => $quiz->getQuestions()->toArray()
                 ]
