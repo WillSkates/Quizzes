@@ -11,7 +11,11 @@
     <id name="uuid" type="guid">
         <generator strategy="UUID" />
     </id>
-    <one-to-many field="questions" target-entity="Quizzes\Question" mapped-by="quiz" />
+    <one-to-many field="questions" target-entity="Quizzes\Question" mapped-by="quiz">
+        <cascade>
+            <cascade-persist/>
+        </cascade>
+    </one-to-many>
   </entity>
 
 </doctrine-mapping>

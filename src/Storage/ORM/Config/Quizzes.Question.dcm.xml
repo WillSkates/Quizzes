@@ -14,7 +14,11 @@
     <many-to-one field="quiz" target-entity="Quizzes\Quiz" inversed-by="question">
         <join-column name="question_id" referenced-column-name="uuid" />
     </many-to-one>
-    <one-to-many field="answers" target-entity="Quizzes\Answer" mapped-by="question" />
+    <one-to-many field="answers" target-entity="Quizzes\Answer" mapped-by="question" >
+        <cascade>
+            <cascade-persist/>
+        </cascade>
+    </one-to-many>
   </entity>
 
 </doctrine-mapping>
