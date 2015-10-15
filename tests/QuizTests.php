@@ -22,11 +22,18 @@ class QuizTests extends PHPUnit_Framework_TestCase
         $name = 'a name';
         $description = 'a description';
         $alias = 'an-alias';
+        $uuid = 'de305d54-75b4-431b-adb2-eb6b9e546014';
+        $url = '/quizzes/1';
         
         $quiz = new Quiz($name, $description, $alias);
+
+        $quiz->setUuid($uuid);
+        $quiz->setUrl($url);
 
         $this->assertEquals($name, $quiz->getName());
         $this->assertEquals($description, $quiz->getDescription());
         $this->assertEquals($alias, $quiz->getAlias());
+        $this->assertEquals($uuid, $quiz->getUuid());
+        $this->assertEquals($url, $quiz->getUrl());
     }
 }
