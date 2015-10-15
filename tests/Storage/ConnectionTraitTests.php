@@ -39,9 +39,9 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
         $metadata = $connection->getClassMetadata();
 
         $classes = [
-            "\Quizzes\Quiz",
-            "\Quizzes\Question",
-            "\Quizzes\Answer"
+            "Quizzes\Quiz",
+            "Quizzes\Question",
+            "Quizzes\Answer"
         ];
 
         $names = [];
