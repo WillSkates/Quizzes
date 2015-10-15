@@ -119,7 +119,6 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 
         foreach ($info['questions'] as $k => $v) {
             foreach ($quiz->getQuestions() as $question) {
-
                 if ($v['name'] == $question->getName()
                     && $v['description'] == $question->getDescription()
                     && $v['alias'] == $question->getAlias()
@@ -207,17 +206,13 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
         $names = [];
 
         foreach ($metadata as $k => $v) {
-
             $names[] = $v->getName();
 
             foreach ($classes as $key => $value) {
-
                 if ($value == $v->getName()) {
                     unset($classes[$key]);
                 }
-
             }
-
         }
 
         $this->assertCount(0, $class, print_r($names, true));
