@@ -9,6 +9,8 @@
  */
 namespace Quizzes;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Quiz
 {
 
@@ -16,7 +18,7 @@ class Quiz
 
     /**
      * A list of questions in this quiz.
-     * @var \Quizzes\QuestionList
+     * @var \Doctrine\Common\Collections\ArrayCollection
      */
     protected $questions;
 
@@ -25,12 +27,13 @@ class Quiz
         $this->setName($name);
         $this->setDescription($description);
         $this->setAlias($alias);
+        $this->questions = new ArrayCollection();
     }
 
     /**
      * Gets the list of questions in this quiz.
      *
-     * @return \Quizzes\QuestionList
+     * @return \Doctrine\Common\Collections\ArrayCollection
      */
     public function getQuestions()
     {
@@ -40,11 +43,11 @@ class Quiz
     /**
      * Sets the list of questions in this quiz.
      *
-     * @param \Quizzes\QuestionList $questions the questions
+     * @param \Doctrine\Common\Collections\ArrayCollection $questions the questions
      *
      * @return self
      */
-    protected function setQuestions(\Quizzes\QuestionList $questions)
+    protected function setQuestions(ArrayCollection $questions)
     {
         $this->questions = $questions;
 
