@@ -119,38 +119,20 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 
         foreach ($info['questions'] as $k => $v) {
             foreach ($quiz->getQuestions() as $question) {
-                if ($v['name'] == $question->getName()
-                    && $v['description'] == $question->getDescription()
-                    && $v['alias'] == $question->getAlias()
-                    && $v['url'] == $question->getUrl()
-                ) {
+                $q = [
+                    "name" => $question->getName(),
+                    "description" => $question->getDescription(),
+                    "alias" => $question->getAlias(),
+                    "url" => $question->getUrl()
+                ];
+
+                $answers = $v['answers'];
+                unset($v['answers'], $v['uuid']);
+
+                $diff = array_diff($v, $q);
+
+                if(count($diff) == 0) {
                     $found++;
-                    $foundAnswers = 0;
-
-                    foreach ($v['answers'] as $value) {
-                        foreach ($question->getAnswers() as $answer) {
-                            if ($value['name'] == $answer->getName()
-                                && $value['description'] == $answer->getDescription()
-                                && $value['alias'] == $answer->getAlias()
-                                && $value['url'] == $answer->getUrl()
-                            ) {
-                                $foundAnswers++;
-                            }
-                        }
-                    }
-
-                    $this->assertEquals(
-                        count($v['answers']),
-                        $foundAnswers,
-                        print_r(
-                            [
-                                "message" => "Couldn't find all of the answers for the question named {$v['name']}.",
-                                "info" => $v['answers'],
-                                "actual" => $question->getAnswers()->toArray()
-                            ],
-                            true
-                        )
-                    );
                 }
             }
         }
@@ -173,6 +155,8 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
             print_r(
                 [
                     "message" => "Couldn't find all of the questions for the quiz named {$info['name']}.",
+                    "found" => $found,
+                    "numQuestions" => count($info['questions']),
                     "info" => $info['questions'],
                     "actual" => $questionInfo
                 ]
