@@ -99,7 +99,9 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 
         $result = $quizzes[0];
 
-        $uuid = $quizzes->getUuid();
+        $uuid = $result->getUuid();
+
+        $this->assertTrue($this->doesInfoMatchQuiz($info, $result));
 
     }
 
@@ -171,6 +173,8 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
                 ]
             )
         );
+
+        return true;
 
     }
 
