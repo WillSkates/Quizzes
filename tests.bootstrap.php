@@ -30,7 +30,10 @@ $mysql = new Quizzes\Storage\Mysql(
 	'quizzes_tests'
 );
 
-$sql = $mysql->provideCreateSchemaSql();
+$schema = $mysql->getSchemaTool();
+$metadata = $mysql->getClassMetadata();
+
+$sql = $schema->getCreateSchemaSql($metadata);
 
 foreach ($sql as $query) {
 	$cconn->exec($query);
