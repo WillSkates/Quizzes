@@ -177,16 +177,22 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 
     }
 
-    public function testCrudUsingMysqlConnection()
+    protected function createMysqlConnection()
     {
         $connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
         $connection->establishConnection(
             'pdo_mysql',
-            $host,
-            $username,
-            $password,
-            $dbname
+            $_ENV['db_host'],
+            $_ENV['db_username'],
+            $_ENV['db_password'],
+            $_ENV['db_name']
         );
+        return $connection;
+    }
+
+    public function testCrudUsingMysqlConnection()
+    {
+        $connection = $this->createMysqlConnection();
         $this->useConnectionToTestCrud($connection);
     }
 
@@ -194,7 +200,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
     {
 
         //Make sure that we have metadata for each class.
-        $connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
+        $connection = $this->createMysqlConnection();
         $metadata = $connection->getClassMetadata();
 
         $classes = [
@@ -225,7 +231,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
 
     public function testGetSchemaTool()
     {
-        $connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
+        $connection = $this->createMysqlConnection();
         $schema = $connection->getSchemaTool();
         $this->assertInstanceOf('Doctrine\ORM\Tools\SchemaTool', $schema);
     }
