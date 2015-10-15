@@ -37,5 +37,23 @@ class QuizTests extends PHPUnit_Framework_TestCase
         $this->assertEquals($url, $quiz->getUrl());
 
         $this->assertCount(0, $quiz->getQuestions());
+
+        $questions = [
+            new Question('a test question', '', ''),
+            new Question('a test question 1', '', ''),
+            new Question('a test question 2', '', '')
+        ];
+
+        foreach($questions as $question) {
+            $question->setQuiz($quiz);
+            $quiz->getQuestions()->add($question);
+        }
+
+        $this->assertCount(count($questions), $quiz->getQuestions());
+
+        foreach($quiz->getQuestions() as $key => $value) {
+            $this->assertEquals($questions[$key]->getName(), $value->getName());
+        }
+
     }
 }

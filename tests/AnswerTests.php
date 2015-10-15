@@ -10,6 +10,7 @@
 namespace Quizzes\Tests;
 
 use Quizzes\Answer;
+use Quizzes\Question;
 
 use PHPUnit_Framework_TestCase;
 
@@ -35,6 +36,12 @@ class AnswerTests extends PHPUnit_Framework_TestCase
         $this->assertEquals($alias, $answer->getAlias());
         $this->assertEquals($uuid, $answer->getUuid());
         $this->assertEquals($url, $answer->getUrl());
+
+        $question = new Question('a test question', '', '');
+        $this->assertNull($answer->getQuestion());
+        $answer->setQuestion($question);
+
+        $this->assertEquals($question->getName(), $answer->getQuestion()->getName());
 
     }
 }
