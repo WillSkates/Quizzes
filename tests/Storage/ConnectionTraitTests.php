@@ -155,6 +155,18 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
             }
         }
 
+        $questionInfo = [];
+
+        foreach($quiz->getQuestions() as $question) {
+            $questionInfo[] = [
+                "name" => $question->getName(),
+                "description" => $question->getDescription(),
+                "alias" => $question->getAlias(),
+                "url" => $question->getUrl(),
+                "uuid" => $question->getUuid()
+            ]
+        }
+
         $this->assertEquals(
             count($info['questions']),
             $found,
@@ -162,7 +174,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
                 [
                     "message" => "Couldn't find all of the questions for the quiz named {$info['name']}.",
                     "info" => $info['questions'],
-                    "actual" => $quiz->getQuestions()->toArray()
+                    "actual" => $questionInfo
                 ]
             )
         );
