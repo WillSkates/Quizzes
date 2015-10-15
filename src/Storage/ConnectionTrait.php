@@ -173,7 +173,7 @@ trait ConnectionTrait
      */
     public function getSchemaTool()
     {
-        if(is_null($this->schemaTool)) {
+        if (is_null($this->schemaTool)) {
             $this->schemaTool = new SchemaTool($this->entityManager);
         }
         return $this->schemaTool;
@@ -186,7 +186,7 @@ trait ConnectionTrait
      */
     public function getClassMetadata()
     {
-        if(is_null($this->classMetadata)) {
+        if (is_null($this->classMetadata)) {
             $this->classMetadata = array(
                 $this->entityManager->getClassMetadata('Quizzes\Quiz'),
                 $this->entityManager->getClassMetadata('Quizzes\Question'),

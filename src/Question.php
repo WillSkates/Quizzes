@@ -22,6 +22,12 @@ class Question
      */
     protected $answers;
 
+    /**
+     * The quiz that this question is a part of.
+     * @var \Quizzes\Quiz
+     */
+    protected $quiz;
+
     public function __construct($name, $description, $alias)
     {
         $this->setName($name);
@@ -41,16 +47,12 @@ class Question
     }
 
     /**
-     * Sets the list of answers to this question.
+     * Gets the quiz that this question is a part of.
      *
-     * @param \Doctrine\Common\Collections\ArrayCollection $answers the answers
-     *
-     * @return self
+     * @return \Quizzes\Quiz
      */
-    protected function setAnswers(ArrayCollection $answers)
+    public function getQuiz()
     {
-        $this->answers = $answers;
-
-        return $this;
+        return $this->quiz;
     }
 }

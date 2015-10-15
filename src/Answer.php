@@ -14,6 +14,12 @@ class Answer
     
     use ThingTrait;
 
+    /**
+     * The question that this is an answer to.
+     * @var \Quizzes\Question
+     */
+    protected $question;
+
     public function __construct($name, $description, $alias)
     {
         $this->setName($name);
