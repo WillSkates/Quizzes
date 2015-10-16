@@ -22,11 +22,13 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
     {
         $connection = $this->getObjectForTrait('Quizzes\Storage\ConnectionTrait');
         $connection->establishConnection(
-            'pdo_mysql',
-            $_ENV['db_host'],
-            $_ENV['db_username'],
-            $_ENV['db_password'],
-            $_ENV['db_name']
+            [
+                'driver'   => 'pdo_mysql',
+                'host'     => $_ENV['db_host'],
+                'username' => $_ENV['db_username'],
+                'password' => $_ENV['db_password'],
+                'dbname'   => $_ENV['db_name']
+            ]
         );
         return $connection;
     }
