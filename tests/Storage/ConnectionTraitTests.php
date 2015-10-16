@@ -63,6 +63,7 @@ class ConnectionTraitTests extends PHPUnit_Framework_TestCase
     public function testGetRepositories()
     {
         $connection = $this->createMysqlConnection();
+        $this->assertInstanceOf('Doctrine\ORM\EntityManager', $connection->getEntityManager());
         $this->assertInstanceOf('Doctrine\ORM\EntityRepository', $connection->getQuizzes());
         $this->assertInstanceOf('Doctrine\ORM\EntityRepository', $connection->getQuestions());
         $this->assertInstanceOf('Doctrine\ORM\EntityRepository', $connection->getAnswers());

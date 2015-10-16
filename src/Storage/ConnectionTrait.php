@@ -57,17 +57,12 @@ trait ConnectionTrait
      * @var array
      */
     protected $classMetadata;
-
+    
     /**
-     * Establish a connection to the database using the following:
-     * @param  string $driver   The database driver name e.g.pdo_mysql
-     * @param  string $host
-     * @param  string $username
-     * @param  string $password
-     * @param  string $dbname
+     * Establish a connection to the database using the following.
+     * @param  array  $connectionParams An array of parameters that establishes a connection.
      * @return self
      */
-    
     public function establishConnection(array $connectionParams)
     {
 
