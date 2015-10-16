@@ -27,6 +27,10 @@ Here is an example composer.json file:
 	}
 ```
 
+## Development
+
+All information pertaining to the project charter, norms and development cycle can be found [https://trello.com/b/LFAsX15y](here).
+
 ## Usage
 
 ### Brief summary.
