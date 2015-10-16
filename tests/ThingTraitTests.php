@@ -13,16 +13,12 @@ use Quizzes\ThingTrait;
 
 use PHPUnit_Framework_TestCase;
 
-use ReflectionObject;
-
 class ThingTraitTests extends PHPUnit_Framework_TestCase
 {
 
-    public function testCanCreate()
+    public function testCanUse()
     {
         $thing = $this->getObjectForTrait('Quizzes\ThingTrait');
-
-        $ref = new ReflectionObject($thing);
 
         $this->assertNull($thing->getName());
         $this->assertNull($thing->getDescription());
@@ -31,34 +27,38 @@ class ThingTraitTests extends PHPUnit_Framework_TestCase
         $name = 'a name';
         $description = 'a description';
         $alias = 'an-alias';
+        $uuid = 'de305d54-75b4-431b-adb2-eb6b9e546014';
+        $url = '/quizzes/1';
 
-        $setName = $ref->getMethod('setName');
-        $setDescription = $ref->getMethod('setDescription');
-        $setAlias = $ref->getMethod('setAlias');
-
-        $setName->setAccessible(true);
-        $setDescription->setAccessible(true);
-        $setAlias->setAccessible(true);
-
-        $setName->invoke($thing, $name);
-        $setDescription->invoke($thing, $description);
-        $setAlias->invoke($thing, $alias);
+        $thing->setName($name);
+        $thing->setDescription($description);
+        $thing->setAlias($alias);
+        $thing->setUuid($uuid);
+        $thing->setUrl($url);
 
         $this->assertEquals($name, $thing->getName());
         $this->assertEquals($description, $thing->getDescription());
         $this->assertEquals($alias, $thing->getAlias());
+        $this->assertEquals($uuid, $thing->getUuid());
+        $this->assertEquals($url, $thing->getUrl());
 
         $name = 'another name';
         $description = 'another description';
         $alias = 'another-alias';
+        $uuid = 'de305d54-75b4-431b-adb2-eb6b9e546015';
+        $url = '/quizzes/2';
 
-        $setName->invoke($thing, $name);
-        $setDescription->invoke($thing, $description);
-        $setAlias->invoke($thing, $alias);
+        $thing->setName($name);
+        $thing->setDescription($description);
+        $thing->setAlias($alias);
+        $thing->setUuid($uuid);
+        $thing->setUrl($url);
 
         $this->assertEquals($name, $thing->getName());
         $this->assertEquals($description, $thing->getDescription());
         $this->assertEquals($alias, $thing->getAlias());
+        $this->assertEquals($uuid, $thing->getUuid());
+        $this->assertEquals($url, $thing->getUrl());
 
     }
 }

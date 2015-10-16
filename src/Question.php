@@ -9,6 +9,8 @@
  */
 namespace Quizzes;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Question
 {
     
@@ -16,21 +18,28 @@ class Question
 
     /**
      * A list of answers to this question.
-     * @var \Quizzes\AnswerList
+     * @var \Doctrine\Common\Collections\ArrayCollection
      */
     protected $answers;
+
+    /**
+     * The quiz that this question is a part of.
+     * @var \Quizzes\Quiz
+     */
+    protected $quiz;
 
     public function __construct($name, $description, $alias)
     {
         $this->setName($name);
         $this->setDescription($description);
         $this->setAlias($alias);
+        $this->answers = new ArrayCollection();
     }
 
     /**
      * Gets the list of answers to this question.
      *
-     * @return \Quizzes\AnswerList
+     * @return \Doctrine\Common\Collections\ArrayCollection
      */
     public function getAnswers()
     {
@@ -38,15 +47,25 @@ class Question
     }
 
     /**
-     * Sets the list of answers to this question.
+     * Gets the quiz that this question is a part of.
      *
-     * @param \Quizzes\AnswerList $answers the answers
+     * @return \Quizzes\Quiz
+     */
+    public function getQuiz()
+    {
+        return $this->quiz;
+    }
+
+    /**
+     * Sets the quiz that this question is a part of.
+     *
+     * @param \Quizzes\Quiz $quiz the quiz
      *
      * @return self
      */
-    protected function setAnswers(\Quizzes\AnswerList $answers)
+    public function setQuiz(\Quizzes\Quiz $quiz)
     {
-        $this->answers = $answers;
+        $this->quiz = $quiz;
 
         return $this;
     }

@@ -2,8 +2,8 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                    https://raw.github.com/doctrine/doctrine2/master/doctrine-mapping.xsd">
-
-  <entity name="Quizzes\Storage\ORM\Quiz">
+                   
+  <entity name="Quizzes\Question">
     <field name="name" type="string" length="255" />
     <field name="alias" type="string" length="255" />
     <field name="description" type="string" length="500" />
@@ -11,7 +11,14 @@
     <id name="uuid" type="guid">
         <generator strategy="UUID" />
     </id>
-    <one-to-many field="questions" target-entity="Quizzes\Storage\ORM\Question" mapped-by="quiz" />
+    <many-to-one field="quiz" target-entity="Quizzes\Quiz" inversed-by="question">
+        <join-column name="question_id" referenced-column-name="uuid" />
+    </many-to-one>
+    <one-to-many field="answers" target-entity="Quizzes\Answer" mapped-by="question" >
+        <cascade>
+            <cascade-persist/>
+        </cascade>
+    </one-to-many>
   </entity>
 
 </doctrine-mapping>
