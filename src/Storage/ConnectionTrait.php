@@ -67,25 +67,18 @@ trait ConnectionTrait
      * @param  string $dbname
      * @return self
      */
-    public function establishConnection($driver, $host, $username, $password, $dbname)
+    
+    public function establishConnection(array $connectionParams)
     {
 
         $paths = [
             __DIR__ . '/ORM/Config'
         ];
 
-        $dbParams = array(
-            'driver'   => $driver,
-            'host'     => $host,
-            'user'     => $username,
-            'password' => $password,
-            'dbname'   => $dbname
-        );
-
         $isDevMode = false;
 
         $config = Setup::createXMLMetadataConfiguration($paths, $isDevMode);
-        $this->entityManager = EntityManager::create($dbParams, $config);
+        $this->entityManager = EntityManager::create($connectionParams, $config);
 
         $this->quizzes   = $this->entityManager->getRepository('Quizzes\Quiz');
         $this->questions = $this->entityManager->getRepository('Quizzes\Question');

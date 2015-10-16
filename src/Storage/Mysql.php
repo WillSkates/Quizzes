@@ -17,13 +17,15 @@ class Mysql
     public function __construct($host, $username, $password, $dbname)
     {
 
-        $this->establishConnection(
-            'pdo_mysql',
-            $host,
-            $username,
-            $password,
-            $dbname
+        $dbParams = array(
+            'driver'   => 'pdo_mysql',
+            'host'     => $host,
+            'user'     => $username,
+            'password' => $password,
+            'dbname'   => $dbname
         );
+
+        $this->establishConnection($dbParams);
 
     }
 }
